@@ -1,0 +1,20 @@
+.main {
+    display: flex;
+    flex:1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.employee {
+    flex:1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.employee  img{
+border-radius: 100%;
+}
