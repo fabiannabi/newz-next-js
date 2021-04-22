@@ -20,3 +20,10 @@ a {
   height: 100vh;
   flex-direction: column;
 }
+
+
+@media (max-width: 360px) {
+  .page-container{
+    width: fit-content;
+  }
+}

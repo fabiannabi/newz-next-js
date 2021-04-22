@@ -10,8 +10,16 @@
     width:500px;
     margin-bottom: 25px;
     padding-bottom: 25px;
-    border-bottom: 1px solid black;
+    background-color: aliceblue;
+    border-radius: 3px;
+    padding:3rem;
+    transition: all .2s ease-in-out;
 }
+
+.post:hover{
+    transform: scale(1.03);
+}
+
 
 .post img{
     width:100%
@@ -41,4 +49,15 @@
 .paginator .disabled {
     cursor: not-allowed;
     color: grey;
+}
+
+@media (max-width: 360px) {
+    .post{
+        width: auto;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid black;
+        margin: 2rem;
+        text-align: justify;
+    }
 }
