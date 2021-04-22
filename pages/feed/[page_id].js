@@ -10,7 +10,7 @@ export const Feed = ({pageNumber, articles})  => {
       <div className={styles.main}>
         { articles.map((article, index ) => (
             <div key={index} className={styles.post}>
-              <h1 onClick={()=>(window.location.href=article.url)}>{article.title}</h1>
+              <h1 onClick={()=>(window.location.href=article.url)}>{article.title.toUpperCase()}</h1>
               <p>{article.description}</p>
               {!!article.urlToImage && <img src={article.urlToImage}/>}
             </div>
@@ -52,8 +52,15 @@ export const getServerSideProps = async pageContext => {
       }
     }
   }
+  const today = new Date()
+  const yesterday = new Date(today)
 
-  const response = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&pageSize=5&page=${pageNumber}`,
+  yesterday.setDate(yesterday.getDate() - 1)
+
+  today.toDateString()
+  yesterday.toDateString()
+
+  const response = await fetch(`https://newsapi.org/v2/top-headlines?country=mx&pageSize=5&page=${pageNumber}&from=${yesterday}&to=${today}&sortBy=popularity`,
     {
       headers: {
         Authorization: `Bearer ${process.env.NEWZ_API_KEY}`,
